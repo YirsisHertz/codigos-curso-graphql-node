@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  authapi:
+    container_name: authapi
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - authdb
+    restart: always
+  authdb:
+    container_name: mongodb
+    image: mongo:6.0.5
+    ports:
+      - "27017:27017"
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=yirsis
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=authapi
+    volumes:
+      - mongo-auth-api:/data/db
+  mongo-express:
+    image: mongo-express:1.0.0-alpha.4
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: yirsis
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_URL: mongodb://yirsis:root@authdb:27017/
+
+
+volumes:
+  mongo-auth-api:

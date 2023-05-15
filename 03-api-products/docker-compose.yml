@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  api_products:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    restart: always
+  db:
+    image: mysql:8.0.32
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_USER=yirsis
+      - MYSQL_PASSWORD=yirsis
+      - MYSQL_DATABASE=productsgql
+      
+volumes:
+  mysql_data:

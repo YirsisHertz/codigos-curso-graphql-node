@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME: yirsis
+      - MONGO_INITDB_ROOT_PASSWORD: yirsis
+      - MONGO_INITDB_DATABASE: products_default
+
+volumes:
+  mongo-data:
