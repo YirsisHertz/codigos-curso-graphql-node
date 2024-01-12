@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src"],
-    "outDir": "dist",
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
     "lib": ["es2020"],
-    "target": "es2020",
     "module": "esnext",
     "moduleResolution": "node",
-    "esModuleInterop": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "rootDirs": ["src"],
+    "target": "es2020",
     "types": ["node"]
   },
-  "strict": true,
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  }
+  "strict": true
 }

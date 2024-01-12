@@ -1,9 +1,9 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { typeDefs } from "./typeDefs";
-import { resolvers } from "./resolvers";
-import { MyContext } from "./context";
-import { UsersAPI } from "./datasources/users.data";
+import { typeDefs } from "./typeDefs/index.js";
+import { resolvers } from "./resolvers/index.js";
+import { MyContext } from "./context/index.js";
+import { UsersAPI } from "./datasources/users.data.js";
 
 const server = new ApolloServer<MyContext>({
   typeDefs,

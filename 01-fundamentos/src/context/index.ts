@@ -1,4 +1,4 @@
-import { UsersAPI } from "../datasources/users.data";
+import { UsersAPI } from "../datasources/users.data.js";
 
 export interface MyContext {
   dataSources: {
